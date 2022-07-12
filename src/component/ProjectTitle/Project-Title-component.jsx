@@ -4,7 +4,7 @@ const ProjectTitle = (props) => {
     return (
         <div className="bg-white lg:w-60 p-6 w-full md:w-80 md:p-4 py-3 rounded-xl flex-row flex justify-between items-center">
             <div className="flex">
-                <h1 className="md:text-xl w-full text-2xl text-[#232360] truncate">{props.title}</h1>
+                <h1 className="md:text-xl w-full text-2xl text-[#232360] truncate font-medium">{props.title}</h1>
             </div>
             <div className="flex flex-row-reverse items-center">
                 <AddTaskButton />
