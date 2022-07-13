@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const CreateProject = ({ setModalOn }) => {
+const CreateProject = ({ setModalOn,setProjects }) => {
     const [projectName , setProjectName]= useState('');
     const [error,setError] = useState(false);
     const handleOKClick = () => {
@@ -8,6 +8,12 @@ const CreateProject = ({ setModalOn }) => {
             setError(true)
             return;
         }
+        let project = {
+            Id:Date.now(),
+            ProjectName :projectName,
+            Tasks:[]
+        }
+        setProjects(old=>[...old,project])
         setModalOn(false)
     }
     const handleCancelClick = () => {
