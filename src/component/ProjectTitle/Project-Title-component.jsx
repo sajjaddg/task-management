@@ -5,22 +5,22 @@ import { BiCopy } from 'react-icons/bi'
 import { GrEdit } from 'react-icons/gr'
 import Popup from 'reactjs-popup';
 import { ProjectsContext } from "../../context/ProjectsContext";
+import EditProject from "../EditProject/Edit-Project-Modal-component";
 const ProjectTitle = ({Id}) => {
     const[state,setState] = useContext(ProjectsContext);
-    const [title,setTitle] = useState('');
+    const [modalOn, setModalOn] = useState(false);
+    const [project,setProject] = useState('');
    useEffect(()=>{
         if(state){
             let p = state.find((x)=> x.Id===Id)
-            setTitle(p?.ProjectName)
+            setProject(p)
         }
    },[state])
     const handleDuplicate = () => {
-        let p = state.find((x)=> x.Id===Id)
-        
         let newProject = {
             Id: Date.now(),
-            ProjectName: p.ProjectName,
-            Tasks: p.Tasks
+            ProjectName: project.ProjectName,
+            Tasks: project.Tasks
         }
         setState(old => [...old, newProject])
     }
@@ -28,11 +28,13 @@ const ProjectTitle = ({Id}) => {
         let p = state.filter((item)=>{return Id!==item.Id})
          setState(p)
      }
-    // const handleEdit = () => { }
+    const handleEdit = () => { 
+        setModalOn(true)
+    }
     return (
         <div className="bg-white lg:w-60 p-6 w-full md:w-80 md:p-4 py-3 rounded-xl flex-row flex justify-between items-center">
             <div className="flex">
-                <h1 className="md:text-xl w-full text-2xl text-[#232360] truncate font-medium">{title}</h1>
+                <h1 className="md:text-xl w-full text-2xl text-[#232360] truncate font-medium">{project.ProjectName}</h1>
             </div>
             <div className="flex flex-row-reverse items-center">
                 <AddTaskButton />
@@ -46,7 +48,7 @@ const ProjectTitle = ({Id}) => {
                 >
                     {close => (
                         <div className="flex flex-col bg-white  drop-shadow-lg rounded-lg mt-8 space-y-1 px-2 w-40 mr-20">
-                            <button className="flex flex-row items-center space-x-4 hover:bg-[#7F8698] hover:bg-opacity-10 rounded-xl py-2">
+                            <button onClick={()=>[handleEdit(),close()]} className="flex flex-row items-center space-x-4 hover:bg-[#7F8698] hover:bg-opacity-10 rounded-xl py-2">
                                 <GrEdit />
                                 <h1 className="font-medium">Edit</h1>
                             </button>
@@ -62,6 +64,7 @@ const ProjectTitle = ({Id}) => {
                     )
                     }
                 </Popup>
+                {modalOn && < EditProject Id={project?.Id} setModalOn={setModalOn} />}
             </div>
         </div>
     )
