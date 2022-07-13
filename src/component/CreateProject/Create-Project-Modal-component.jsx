@@ -1,8 +1,13 @@
-import React, { useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
+import { ProjectsContext } from "../../context/ProjectsContext";
 
-const CreateProject = ({ setModalOn,setProjects }) => {
+const CreateProject = ({ setModalOn }) => {
+    const [state,setState] = useContext(ProjectsContext)
     const [projectName , setProjectName]= useState('');
     const [error,setError] = useState(false);
+    useEffect(()=>{
+        console.log(state);
+    },[state])
     const handleOKClick = () => {
         if(!projectName.length>0){
             setError(true)
@@ -13,7 +18,15 @@ const CreateProject = ({ setModalOn,setProjects }) => {
             ProjectName :projectName,
             Tasks:[]
         }
-        setProjects(old=>[...old,project])
+        if(state){
+           
+            setState([...state,project])
+        }
+        else{
+            
+            setState([project])
+        }
+       
         setModalOn(false)
     }
     const handleCancelClick = () => {
@@ -22,7 +35,7 @@ const CreateProject = ({ setModalOn,setProjects }) => {
     return (
         <div className=" bg-zinc-200 bg-opacity-25 backdrop-blur-sm fixed inset-0 z-50">
             <div className="flex h-screen justify-center items-center">
-                <div className="flex-col justify-center w-96  bg-white py-4 px-4 rounded-xl shadow-lg">
+                <div className="flex-col justify-center w-96  bg-white py-4 px-4 rounded-xl drop-shadow-lg">
                     <div className="flex flex-row justify-end">
                         <button className="text-[#95A3B9]" onClick={()=>handleCancelClick()}>X</button>
                     </div>
