@@ -7,7 +7,7 @@ const ProjectCard =({project})=>{
             {project?<ProjectTitle project={project} />:null}
               {project?.Tasks?.map((item)=>{
                 return(
-                    <TaskCard key={item.Id} task={item}/>
+                    <TaskCard key={item.Id} project={project} task={item}/>
                 )
               })}
               

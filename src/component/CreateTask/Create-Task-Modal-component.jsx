@@ -18,6 +18,7 @@ const CreateTask = ({ setModalOn, project }) => {
             Id:Date.now(),
             TaskName:taskName,
             TaskDescription:taskDescription,
+            TaskDone:false,
             Date:today.toLocaleDateString("en-US", options)
         }
         project.Tasks.push(task)
