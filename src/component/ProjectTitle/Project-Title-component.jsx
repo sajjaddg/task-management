@@ -6,9 +6,13 @@ import { GrEdit } from 'react-icons/gr'
 import Popup from 'reactjs-popup';
 import { ProjectsContext } from "../../context/ProjectsContext";
 import EditProject from "../EditProject/Edit-Project-Modal-component";
+import CreateTask from "../CreateTask/Create-Task-Modal-component";
+
+
 const ProjectTitle = ({project}) => {
     const[state,setState] = useContext(ProjectsContext);
-    const [modalOn, setModalOn] = useState(false);
+    const [editModalShow, setEditModalShow] = useState(false);
+    const [createModalShow,setCreateModalShow] = useState(false);
     const handleDuplicate = () => {
         let newProject = {
             Id: Date.now(),
@@ -22,7 +26,7 @@ const ProjectTitle = ({project}) => {
         setState(p)
      }
     const handleEdit = () => { 
-        setModalOn(true)
+        setEditModalShow(true)
     }
     return (
         <div className="bg-white lg:w-60 p-6 w-full md:w-80 md:p-4 py-3 rounded-xl flex-row flex justify-between items-center">
@@ -30,7 +34,7 @@ const ProjectTitle = ({project}) => {
                 <h1 className="md:text-xl w-full text-2xl text-[#232360] truncate font-medium">{project.ProjectName}</h1>
             </div>
             <div className="flex flex-row-reverse items-center">
-                <AddTaskButton />
+                <AddTaskButton onClick={()=>{setCreateModalShow(true)}}/>
 
                 <Popup
                     trigger={open => <button className="flex mr-5 md:mr-2 justify-center items-center md:h-4 md:w-4 h-6 w-6 text-[#768396] md:text-2xl pb-3 text-3xl">...</button>}
@@ -57,7 +61,8 @@ const ProjectTitle = ({project}) => {
                     )
                     }
                 </Popup>
-                {modalOn && < EditProject project={project} setModalOn={setModalOn} />}
+                {editModalShow && < EditProject project={project} setModalOn={setEditModalShow} />}
+                {createModalShow && <CreateTask project={project} setModalOn={setCreateModalShow} />}
             </div>
         </div>
     )
