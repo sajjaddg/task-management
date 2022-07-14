@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiFillFlag } from 'react-icons/ai'
 import { RiDeleteBin7Line } from 'react-icons/ri';
 import { BiCopy } from 'react-icons/bi'
 import { GrEdit } from 'react-icons/gr'
 import Popup from 'reactjs-popup';
 import { ProjectsContext } from '../../context/ProjectsContext';
+import EditTask from '../EditTask/Edit-Task-Modal-component';
 
 const TaskCard = ({ project, task }) => {
+    const [editModalShow, setEditModalShow] = useState(false);
     const [state, setState] = useContext(ProjectsContext)
     const handleDelete = () => {
         project.Tasks = project.Tasks.filter((item) => item.Id !== task.Id)
@@ -36,7 +38,7 @@ const TaskCard = ({ project, task }) => {
         
     }
     const handleEdit = () => {
-
+        setEditModalShow(true)
     }
     return (
         <div className="pt-4 pb-4 md:pb-2 pl-6 md:pr-2 rounded-xl flex w-full flex-col bg-white md:w-80 lg:w-60">
@@ -82,8 +84,8 @@ const TaskCard = ({ project, task }) => {
                     </div>
                 </div>
                 <input type="radio" className='accent-[#7784EE] mr-2 w-6 h-6' onChange={()=>{}} checked={task.Done} onClick={(e)=>handleDoneTask(e)} />
-
             </div>
+            {editModalShow && <EditTask project={project} task={task} setModalOn={setEditModalShow} />}
         </div>
     )
 }
