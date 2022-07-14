@@ -1,40 +1,35 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h1>Task Management</h1>
+<hr><p>A simple program for daily or business planning</p><h2>Technologies Used</h2>
+<hr><ul>
+<li>React</li>
+</ul><ul>
+<li>Tailwind CSS</li>
+</ul><h2>Features</h2>
+<hr><ul>
+<li>Add,Delete,Edit Project</li>
+</ul><ul>
+<li>Add,Delete,Edit Task</li>
+</ul><ul>
+<li>Responsive</li>
+</ul><h2>Screenshots</h2>
+<hr><p><img src="https://i.postimg.cc/ZqwmX0bx/Screenshot1.png" alt=""></p><p><img src="https://i.postimg.cc/kDPPWbsq/Screenshot2.png" alt=""></p><p><img src="https://i.postimg.cc/ZYGWwsDK/Screenshot3.png" alt=""></p><p><img src="https://i.postimg.cc/G2NChNsB/Screenshot5.png" alt=""></p><h2>Setup</h2>
+<hr><p>Followig are the requirements to run this project:</p>
+<ul>
+<li>
+<p>Node Package Manager (NPM)</p>
+</li>
+<li>
+<p>React</p>
+</li>
+</ul><h5>Steps</h5><ul>
+<li>
+    ###`git clone https://github.com/r-park/todo-react-redux.git`
+</li>
+</ul><h2>Features that can be added</h2>
+<hr><ul>
+<li>DarkMode</li>
+</ul><ul>
+<li>Label For Task</li>
+</ul><ul>
+<li>Search Task/Project</li>
+</ul>
