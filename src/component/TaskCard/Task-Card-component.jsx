@@ -48,7 +48,7 @@ const TaskCard = ({ project, task }) => {
                     position="center top"
                     closeOnDocumentClick
                     contentStyle={{ padding: '0px', border: 'none' }}
-                    arrow={true}
+                    arrow={false}
                 >
                     {close => (
                         <div className="flex flex-col bg-white  drop-shadow-lg rounded-lg mt-8 space-y-1 px-2 w-40 mr-20">
