@@ -24,9 +24,9 @@
 </ul><h5>Steps</h5><ul>
 
 ```
-    $ git clone https://github.com/sajjaddg/task-management.git
-    $ npm install
-    $ npm start
+$ git clone https://github.com/sajjaddg/task-management.git
+$ npm install
+$ npm start
 ```
 
 </ul><h2>Features that can be added</h2>
