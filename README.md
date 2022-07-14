@@ -22,9 +22,13 @@
 <p>React</p>
 </li>
 </ul><h5>Steps</h5><ul>
-<li>
-    ###`git clone https://github.com/r-park/todo-react-redux.git`
-</li>
+
+```
+    $ git clone https://github.com/sajjaddg/task-management.git
+    $ npm install
+    $ npm start
+```
+
 </ul><h2>Features that can be added</h2>
 <hr><ul>
 <li>DarkMode</li>
