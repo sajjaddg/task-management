@@ -12,15 +12,12 @@ const TaskScreen = () => {
     }
     useEffect(() => {
         if (state) {
-          
             setRedey(true)
         }
     }, [state])
     useEffect(() => {
         if (redey) {
-            if (state.length > 0) {
-                localStorage.setItem('Projects', JSON.stringify(state))
-            }
+            localStorage.setItem('Projects', JSON.stringify(state))
         }
     }, [redey, state])
     return (

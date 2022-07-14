@@ -6,16 +6,9 @@ import { GrEdit } from 'react-icons/gr'
 import Popup from 'reactjs-popup';
 import { ProjectsContext } from "../../context/ProjectsContext";
 import EditProject from "../EditProject/Edit-Project-Modal-component";
-const ProjectTitle = ({Id}) => {
+const ProjectTitle = ({project}) => {
     const[state,setState] = useContext(ProjectsContext);
     const [modalOn, setModalOn] = useState(false);
-    const [project,setProject] = useState('');
-   useEffect(()=>{
-        if(state){
-            let p = state.find((x)=> x.Id===Id)
-            setProject(p)
-        }
-   },[state])
     const handleDuplicate = () => {
         let newProject = {
             Id: Date.now(),
@@ -25,8 +18,8 @@ const ProjectTitle = ({Id}) => {
         setState(old => [...old, newProject])
     }
     const handleDelete = () => {
-        let p = state.filter((item)=>{return Id!==item.Id})
-         setState(p)
+        let p = state.filter((item)=>{return project.Id!==item.Id})
+        setState(p)
      }
     const handleEdit = () => { 
         setModalOn(true)
@@ -64,7 +57,7 @@ const ProjectTitle = ({Id}) => {
                     )
                     }
                 </Popup>
-                {modalOn && < EditProject Id={project?.Id} setModalOn={setModalOn} />}
+                {modalOn && < EditProject project={project} setModalOn={setModalOn} />}
             </div>
         </div>
     )

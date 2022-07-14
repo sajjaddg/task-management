@@ -16,7 +16,7 @@ const ProjectList = ()=>{
         <div className="grid place-items-center items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-4 mt-4">
             {redey?(
                 state?.map((item)=>{return(
-                    <ProjectCard key={item.Id} Id={item.Id}/>
+                    <ProjectCard key={item.Id} project={item}/>
                 )})):null
             }    
         </div>

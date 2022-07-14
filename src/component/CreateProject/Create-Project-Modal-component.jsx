@@ -5,9 +5,7 @@ const CreateProject = ({ setModalOn }) => {
     const [state,setState] = useContext(ProjectsContext)
     const [projectName , setProjectName]= useState('');
     const [error,setError] = useState(false);
-    useEffect(()=>{
-        console.log(state);
-    },[state])
+   
     const handleOKClick = () => {
         if(!projectName.length>0){
             setError(true)
